@@ -1,5 +1,4 @@
 import Navbar from '@/components/Navbar'
-import Container from '@/components/Container'
 
 export default function RootLayout({
   children,
@@ -9,10 +8,8 @@ export default function RootLayout({
   return (
     <>
       <Navbar />
-      <main>
-        <Container className='py-4'>
-          {children}
-        </Container>
+      <main id='main--task'>
+        {children}
       </main>
     </>
   )
