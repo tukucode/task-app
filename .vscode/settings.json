@@ -3,7 +3,7 @@
     "*.css": "tailwindcss"
   },
   // "prettier.enable": false,
-  "editor.formatOnSave": true,
+  "editor.formatOnSave": false,
   "editor.codeActionsOnSave": {
     "source.fixAll": "explicit",
     "source.organizeImports": "never"
