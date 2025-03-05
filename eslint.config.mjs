@@ -25,19 +25,19 @@ const eslintConfig = [
       ],
     },
   },
-  // {
-  //   ignores: [
-  //     '*.md',
-  //     '.next',
-  //     '.npm/**/*',
-  //     '.vscode/*.json',
-  //     'src/components/ui/*',
-  //     'commitlint.config.mjs',
-  //     'postcss.config.mjs',
-  //     'tailwind.config.ts',
-  //     'tsconfig.json',
-  //   ],
-  // },
+  {
+    ignores: [
+      '*.md',
+      '.next',
+      '.npm/**/*',
+      '.vscode/*.json',
+      'src/components/ui/*',
+      'commitlint.config.mjs',
+      'postcss.config.mjs',
+      'tailwind.config.ts',
+      'tsconfig.json',
+    ],
+  },
   ...compat.extends('next/core-web-vitals', 'next/typescript'),
 ]
 
