@@ -2,16 +2,10 @@ import type { Metadata } from 'next'
 
 import { Button } from '@/components/ui/button'
 import { Plus } from 'lucide-react'
-import {
-  Table,
-  TableBody,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from '@/components/ui/table'
+
 
 import { listTaskAction  } from '@/actions/task_action'
-import TaskItem from '@/components/task/Item'
+import TableTask from '@/components/TableTask'
 
 export const metadata: Metadata = {
   title: 'Home',
@@ -29,23 +23,7 @@ export default async function Page() {
         </Button>
       </div>
 
-      <Table>
-        <TableHeader>
-          <TableRow>
-            <TableHead>Title</TableHead>
-            <TableHead>Description</TableHead>
-            <TableHead>Status</TableHead>
-            <TableHead>Actions</TableHead>
-          </TableRow>
-        </TableHeader>
-        <TableBody>
-          {listData.data.map((task) => (
-            <TableRow key={task.id}>
-              <TaskItem task={task} />
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
+      <TableTask data={listData.data} />
     </>
   )
 }
