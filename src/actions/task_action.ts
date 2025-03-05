@@ -25,7 +25,7 @@ export async function listTaskAction(): Promise<ResponseBase<Task[]>> {
   return res.json()
 }
 
-export async function updateStatusTaskAction(id: number): Promise<ResponseBase<Task>> {
+export async function updateStatusTaskAction(id: number) {
   const res = await fetch(`https://api.web.tukucode.com/api/v1/task/${id}`, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
@@ -33,7 +33,13 @@ export async function updateStatusTaskAction(id: number): Promise<ResponseBase<T
   })
 
   if (!res.ok) throw new Error('Failed to update status')
+    
+  revalidatePath('/', 'page')
+}
+
+export async function deleteTaskAction(id: number) {
+  const res = await fetch(`https://api.web.tukucode.com/api/v1/task/${id}`, { method: 'DELETE' })
+  if (!res.ok) throw new Error('Failed to delete task')
 
   revalidatePath('/', 'page')
-  return res.json()
 }

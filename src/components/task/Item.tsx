@@ -9,7 +9,7 @@ type TaskItemProp = {
   task: Task
 }
 
-import { updateStatusTaskAction  } from '@/actions/task_action'
+import { updateStatusTaskAction, deleteTaskAction  } from '@/actions/task_action'
 
 export default function TaskItem({ task }: TaskItemProp) {
   return (
@@ -26,7 +26,7 @@ export default function TaskItem({ task }: TaskItemProp) {
           )
         }
         
-        <Button size="icon" variant="destructive">
+        <Button size="icon" variant="destructive" onClick={() => deleteTaskAction(task.id)}>
           <Trash className='size-4' />
         </Button>
       </TableCell>
