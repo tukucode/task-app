@@ -1,8 +1,11 @@
 import './globals.css'
 import type { Metadata } from 'next'
 
+import { ThemeProvider } from 'next-themes'
 import { Roboto, Roboto_Mono } from 'next/font/google'
 import { APP_NAME, APP_DESCRIPTION, PUBLIC_SERVER_URL } from '@/lib/constants'
+import Navbar from '@/components/Navbar'
+import Container from '@/components/Container'
 
 const roboto = Roboto({
   variable: '--font-roboto',
@@ -29,11 +32,23 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${roboto.variable} ${robotoMono.variable} antialiased`}
       >
-        {children}
+        <ThemeProvider
+          attribute='class'
+          defaultTheme='dark'
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Navbar />
+          <main>
+            <Container className='py-4'>
+              {children}
+            </Container>
+          </main>
+        </ThemeProvider>
       </body>
     </html>
   )
