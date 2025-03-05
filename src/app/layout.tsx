@@ -4,8 +4,6 @@ import type { Metadata } from 'next'
 import { ThemeProvider } from 'next-themes'
 import { Roboto, Roboto_Mono } from 'next/font/google'
 import { APP_NAME, APP_DESCRIPTION, PUBLIC_SERVER_URL } from '@/lib/constants'
-import Navbar from '@/components/Navbar'
-import Container from '@/components/Container'
 
 const roboto = Roboto({
   variable: '--font-roboto',
@@ -42,12 +40,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <Navbar />
-          <main>
-            <Container className='py-4'>
-              {children}
-            </Container>
-          </main>
+          {children}
         </ThemeProvider>
       </body>
     </html>
