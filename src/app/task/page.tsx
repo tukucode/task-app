@@ -19,7 +19,7 @@ export default async function Page() {
       <div className='flex justify-between items-center mb-6'>
         <h1 className='text-xl font-semibold'>Task List</h1>
         <Button asChild>
-          <Link href='/create'>
+          <Link href='/task/new'>
             <Plus className='size-4' />
             Create new task
           </Link>
