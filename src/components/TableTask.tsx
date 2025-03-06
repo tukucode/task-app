@@ -38,7 +38,7 @@ export default function TableTask({ data }: TaskItemProp) {
               <TableCell>{task.completed ? 'Done' : 'Waiting'}</TableCell>
               <TableCell className='flex space-x-2'>
                 {
-                  task.completed ?? (
+                  !task.completed && (
                     <Button size="icon" variant="outline" onClick={() => updateStatusTaskAction(task.id)}>
                       <Check className='size-4' />
                     </Button>
