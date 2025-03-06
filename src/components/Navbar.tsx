@@ -9,7 +9,7 @@ export default function Navbar() {
     <nav id='navbar' className='border'>
       <Container className='flex justify-between items-center h-16'>
       
-        <Link href="/" className='text-2xl font-semibold'>
+        <Link href="/" className='text-xl font-semibold truncate'>
           {APP_NAME}
         </Link>
 
