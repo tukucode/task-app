@@ -33,16 +33,5 @@ jobs:
             docker compose pull ${{ secrets.DOCKER_COMPOSE_SERVICE_NAME }}
             docker compose stop ${{ secrets.DOCKER_COMPOSE_SERVICE_NAME }}
             docker compose up -d ${{ secrets.DOCKER_COMPOSE_SERVICE_NAME }}
-
-      - name: Send Telegram Notification
-        uses: appleboy/telegram-action@v1.0.0
-        with:
-          to: ${{ secrets.TELEGRAM_CHAT_ID }}  # ID Grup
-          token: ${{ secrets.TELEGRAM_BOT_TOKEN }}  # Token Bot
-          message: |
-            ✅ *Deployment Sukses!* 🚀
-            Repository: ${{ github.repository }}
-            Branch: ${{ github.ref_name }}
-            Commit: ${{ github.sha }}
-            Log: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
-            Live Demo: ${{ secrets.URL_LIVE_DEMO }}
+            docker system prune -af
+            curl --location --globoff "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage?chat_id=${{ secrets.TELEGRAM_CHAT_ID }}&text=[FE]%20Deploy%20Success%20-%20Task%20APP%20%7C%7C%20Branch%20Main&message_thread_id=${{ secrets.TELEGRAM_THREAD_ID }}"
